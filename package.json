@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/cms-image-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "easily drag and drop files to be uploaded, added, removed and reordered for client app content",
   "main": "cms-image-editor.js",
   "scripts": {
@@ -21,22 +21,22 @@
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-input": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
-    "@spriteful/app-icons": "^1.0.1",
+    "@spriteful/app-icons": "^1.0.5",
     "@spriteful/app-modal": "^1.0.0",
     "@spriteful/app-spinner": "^1.0.0",
     "@spriteful/drag-drop-files": "^1.0.0",
     "@spriteful/drag-drop-list": "^1.0.0",
-    "@spriteful/lambda": "^1.3.3",
+    "@spriteful/lambda": "^1.3.4",
     "@spriteful/services": "^2.1.3",
     "@spriteful/spriteful-element": "^1.0.4",
-    "@spriteful/utils": "^1.1.6"
+    "@spriteful/utils": "^1.2.1"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.2",
     "@polymer/test-fixture": "^4.0.2",
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.2",
     "wct-mocha": "^1.0.0"
   }
 }
