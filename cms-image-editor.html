@@ -121,6 +121,22 @@
     color: var(--app-primary-color);
   }
 
+
+  .list-icon {
+    width:            20vmax;
+    min-width:        128px;
+    min-height:       128px;
+    background-color: var(--app-disabled-color  );
+    transition:       transform 0.2s ease-out;
+  }
+
+  iron-image[hidden] {
+    display: none;
+  }
+
+    iron-icon[hidden] {
+    display: none;
+  }
 </style>
 
 
@@ -137,8 +153,10 @@
                     fade 
                     preload 
                     sizing="contain"
-                    on-loaded-changed="__handleImageLoadedChanged">
+                    on-loaded-changed="__handleImageLoadedChanged"
+                    hidden="[[!__computeShowIcon(accept)]]">
         </iron-image>
+        <iron-icon  hidden="[[__computeShowIcon(accept)]]" class="list-icon" icon="cms-icons:audio"></iron-icon>
         <div class="list-names">[[item.name]]</div>
       </div>
     </template>
@@ -147,9 +165,12 @@
   <div id="max-width-container">
     <div id="deleteArea" class="max-width">
       <iron-icon icon="app-icons:delete-forever"></iron-icon>
-      <div>Drag image here to delete</div>
+
+      <!-- <div>Drag image here to delete</div> -->
+      <div>[[__computeDeleteWords(accept)]]</div>
     </div>
     <drag-drop-files id="fileDropZone"
+                     accept="[[accept]]"
                      class="max-width"
                      disable-auto-upload
                      directory="[[_directory]]"

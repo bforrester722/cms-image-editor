@@ -43,6 +43,7 @@ import {
 import htmlString from './cms-image-editor.html';
 import services   from '@spriteful/services/services.js';
 import '@spriteful/app-icons/app-icons.js';
+import '@spriteful/cms-icons/cms-icons.js';
 import '@spriteful/app-modal/app-modal.js';
 import '@spriteful/app-spinner/app-spinner.js';
 import '@spriteful/drag-drop-list/drag-drop-list.js';
@@ -76,7 +77,11 @@ class SpritefulCmsImageEditor extends SpritefulElement {
 
   static get properties() {
     return {
-
+      accept: {
+          type: String,
+          value: 'images'
+      },
+      
       kind: {
         type: String,
         value: 'ui'
@@ -169,6 +174,15 @@ class SpritefulCmsImageEditor extends SpritefulElement {
     return multiple ? '' : 'center-list';
   }
 
+  
+  __computeShowIcon(accept) {
+    console.log(accept  )
+    return accept === 'audio' ? false : true; 
+  }
+  
+  __computeDeleteWords(accept) {
+    return accept === 'images' ? 'Drag image here to delete' : 'Drag file here to delete';
+  }
 
   __computeColl(kind, type) {
     return `cms/${kind}/${type}`;
