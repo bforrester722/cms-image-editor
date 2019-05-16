@@ -87,6 +87,11 @@ class SpritefulCmsImageEditor extends SpritefulElement {
         value: 'ui'
       },
 
+      field: {
+        type: String,
+        value: 'images'
+      },
+
       noSaveButton: {
         type: Boolean,
         value: false
@@ -176,7 +181,6 @@ class SpritefulCmsImageEditor extends SpritefulElement {
 
   
   __computeShowIcon(accept) {
-    console.log(accept  )
     return accept === 'audio' ? false : true; 
   }
   
@@ -225,7 +229,7 @@ class SpritefulCmsImageEditor extends SpritefulElement {
         this._items = [];
         return;
       }
-      const images = data.images ? data.images : data;
+      const images = data[this.field] ? data[this.field] : data;
       const keys   = Object.keys(images);
       this._items  = keys.
         reduce((accum, key) => {
