@@ -225,6 +225,7 @@ class SpritefulCmsImageEditor extends SpritefulElement {
   async __fetchItemsFromDb() {
     try {
       const data = await services.get({coll: this._coll, doc: this._doc});
+  
       if (!data) { 
         this._items = [];
         return;
@@ -248,7 +249,7 @@ class SpritefulCmsImageEditor extends SpritefulElement {
     catch (error) {
       if (error.message) {
         const text = error.message.split('!')[0];
-        if (text === 'Error: No such document') { return; } // ignore new instances
+        if (text === 'No such document') { return; } // ignore new instances
       }
       this.$.spinner.hide();
       console.error(error);
